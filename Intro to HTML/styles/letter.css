@@ -1,0 +1,25 @@
+section[id="letter"] {
+    width: 80%;
+    margin: auto;
+    border: 2px solid black;
+}
+section[id="info"] {
+    width:100%;
+    display: inline-flex;
+}
+
+section ul {
+    list-style: none;
+}
+
+div[id="left"] {
+    width: 50%;
+    display: inline-block;
+}
+
+div[id="right"] {
+    width: 50%;
+    text-align: right;
+    margin-right: 5%;
+    display: inline-block;
+}
