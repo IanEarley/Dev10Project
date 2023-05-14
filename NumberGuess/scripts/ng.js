@@ -1,14 +1,17 @@
 let num, input, max;
+let maxPrompt = "The number will be between one and...?";
 let guesses = [];
 
 function generateNumber () {
     let valid_input = false;
 
         while(!valid_input) {
-            max = Math.round(window.prompt("The number will be between one and...?"));
+            max = Math.round(window.prompt(maxPrompt));
 
-            if (!isNaN(max)) {
+            if (!isNaN(max) && max > 1) {
                 valid_input = true;
+            } else {
+                maxPrompt = "Please enter a number greater than 1."
             }
         }
     document.getElementById("range").innerHTML = `I'm thinking of a number between 1 and ${max}...`
