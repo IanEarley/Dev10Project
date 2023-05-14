@@ -5,13 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="styles\ng.css"
 </head>
 <body>
-    <h1>Higher Lower!</h1>
-    <p id="range"></p>
-    <input id="uGuess" type="number"/>
-    <button id="start" onclick="guessingRound()">Guess!</button>
-    <p id="guess"></p>
-    <script src="scripts\ng.js"></script>
+    <div id="game">
+        <h1 id="title">Higher Lower!</h1>
+        <p id="range"></p>
+        <input id="uGuess" type="number"/>
+        <button id="start" onclick="guessingRound()">Guess!</button>
+        <p id="guess"></p>
+    </div>
+    <script src="scripts\ng.js" defer></script>
 </body>
 </html>

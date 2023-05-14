@@ -1,4 +1,6 @@
-let num, input, max
+let num, input, max;
+let guesses = [];
+
 function generateNumber () {
     let valid_input = false;
 
@@ -13,26 +15,36 @@ function generateNumber () {
     return num = Math.floor(Math.random()*max) + 1;
 }
 
-function guessingRound(){
+function trackGuesses(guess) {
+    return guesses.push(guess)
+}
+
+function guessingRound() {
     let guessed = false;
     while (guessed == false) {
         input = Math.floor(Number(document.getElementById("uGuess").value));  
         guessed = true;
         if (isNaN(input)) {
-                document.getElementById("guess").innerHTML = "Please enter a valid response!";
-                break;
+            document.getElementById("guess").innerHTML = "Please enter a valid response!";
+            break;
         } else if (input > max || input <= 0) {
             document.getElementById("guess").innerHTML = "That number is outside of the range!";  
             break;
+        } else if (guesses.includes(input)) {
+            document.getElementById("guess").innerHTML = "You've already guessed that number!";  
+            break;
         } else if (input == num) {
-                document.getElementById("guess").innerHTML = "You got it!";
-                guessed = true;
+            trackGuesses(input);
+            document.getElementById("guess").innerHTML = `You got it! Looks like it took you <b>${guesses.length}</b> guesses. (${guesses.join(", ")})`;
+            guessed = true;
         } else if (input < num) {
-                document.getElementById("guess").innerHTML = "Higher...";
-                break;
+            document.getElementById("guess").innerHTML = "Higher...";
+            trackGuesses(input);
+            break;
         } else if (input > num) {
-                document.getElementById("guess").innerHTML = "Lower...";
-                break;
+            document.getElementById("guess").innerHTML = "Lower...";
+            trackGuesses(input);
+            break;
         }
     }
 }
